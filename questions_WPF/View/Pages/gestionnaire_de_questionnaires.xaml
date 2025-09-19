@@ -1,0 +1,45 @@
+﻿<Page x:Class="questions_WPF.Pages.gestionnaire_de_questionnaires"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:questions_WPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="gestionnaire_de_questionnaires">
+
+    <Page.Resources>
+
+        <DataTemplate x:Key="gestionnaireDeQuestionnairesTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Titre}" Margin="20,0,0,0" />
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE738;" FontSize="15" Foreground="White"/>
+            </Grid>
+        </DataTemplate>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Questionnaires :" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="32" Width="209"/>
+        <ListBox x:Name="QuestionnairesListBox" ItemTemplate="{StaticResource gestionnaireDeQuestionnairesTemplate}" Margin="0,62,10,0"/>
+        <Label Grid.Column="1" Content="Nom du questionnaire :" HorizontalAlignment="Left" Margin="17,277,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="titreQuestionnaire" Grid.Column="1" HorizontalAlignment="Center" Margin="0,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="20" Text="{Binding ElementName=QuestionnairesListBox, Path=SelectedItem.Titre}"/>
+        <Button Grid.Column="1" Content="Ajouter" HorizontalAlignment="Left" Margin="18,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Button_Click_2"/>
+        <Button Grid.Column="1" Content="Supprimer" HorizontalAlignment="Left" Margin="120,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Button_Click_3"/>
+        <Button Grid.Column="1" Content="Ouvrir" HorizontalAlignment="Left" Margin="302,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Open_Click"/>
+        <!-- <Button Grid.Column="1" Content="Aller au gestionnaire de questions" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="52" Width="190" Click="Button_Click_1"/> -->
+    </Grid>
+</Page>
