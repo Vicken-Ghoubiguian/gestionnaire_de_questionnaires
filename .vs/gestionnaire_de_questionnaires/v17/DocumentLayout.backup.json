@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\gestionnaire_de_questionnaires\\",
+  "WorkspaceRootPath": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85A6C21D-7ADB-632D-5D09-54ACFCCDB4C7}|questions_Data\\questions_Data\\questions_Data.csproj|c:\\users\\vicken\\downloads\\gestionnaire_de_questionnaires\\gestionnaire_de_questionnaires\\questions_data\\questions_data\\migrations\\20250918152023_initialcreate_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85A6C21D-7ADB-632D-5D09-54ACFCCDB4C7}|questions_Data\\questions_Data\\questions_Data.csproj|c:\\users\\vicken\\downloads\\gestionnaire_de_questionnaires\\questions_data\\questions_data\\migrations\\20250918152023_initialcreate_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85A6C21D-7ADB-632D-5D09-54ACFCCDB4C7}|questions_Data\\questions_Data\\questions_Data.csproj|solutionrelative:questions_data\\questions_data\\migrations\\20250918152023_initialcreate_2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,9 +20,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "20250918152023_InitialCreate_2.cs",
-              "DocumentMoniker": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\gestionnaire_de_questionnaires\\questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
+              "DocumentMoniker": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
               "RelativeDocumentMoniker": "questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
-              "ToolTip": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\gestionnaire_de_questionnaires\\questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
+              "ToolTip": "C:\\Users\\Vicken\\Downloads\\gestionnaire_de_questionnaires\\questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
               "RelativeToolTip": "questions_Data\\questions_Data\\Migrations\\20250918152023_InitialCreate_2.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
