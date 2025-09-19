@@ -8,6 +8,12 @@ Un gestionnaire de questionnaires et de questions développé en C# et en .NET
 
 ## Description
 
+### Cadre de développement
+
+### Présentation
+
+### Structure
+
 ## Installation
 
 ### Procédure
