@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:questions_WPF"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,4,8,0"/>
+            <Setter Property="MinWidth" Value="110"/>
+            <Setter Property="Padding" Value="8,6"/>
+        </Style>
     </Application.Resources>
 </Application>

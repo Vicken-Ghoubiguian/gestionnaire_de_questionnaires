@@ -3,13 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:questions_WPF.Pages"
+      xmlns:local="clr-namespace:questions_WPF.Pages" xmlns:localConverters="clr-namespace:questions_WPF.View.Converters"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="gestionnaire_de_questions">
 
     <Page.Resources>
-
+        <localConverters:TextNotEmptyConverter x:Key="TextNotEmpty" />
         <DataTemplate x:Key="gestionnaireDeQuestionsTemplate">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -39,7 +40,22 @@
         <ListBox x:Name="QuestionsListBox" ItemTemplate="{StaticResource gestionnaireDeQuestionsTemplate}" Margin="10,81,10,10"/>
         <Label Grid.Column="1" Content="Ajouter / Modifier une question" HorizontalAlignment="Left" Margin="24,13,0,0" VerticalAlignment="Top" Height="27" Width="190"/>
         <Label Grid.Column="1" Content="Question :" HorizontalAlignment="Left" Margin="30,45,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="enonce" Grid.Column="1" HorizontalAlignment="Left" Margin="24,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="361" Height="22" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Enonce}"/>
+        <TextBox x:Name="enonce"
+         Grid.Column="1"
+         HorizontalAlignment="Left"
+         Margin="24,72,0,0"
+         TextWrapping="Wrap"
+         VerticalAlignment="Top"
+         Width="361"
+         Height="22"
+         Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Enonce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="GotKeyboardFocus">
+                    <i:CallMethodAction TargetObject="{Binding ElementName=enonce}" MethodName="SelectAll"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
         <Label Grid.Column="1" Content="Réponses possibles :" HorizontalAlignment="Left" Margin="22,138,0,0" VerticalAlignment="Top" Width="128"/>
         <TextBox x:Name="reponse1" Grid.Column="1" HorizontalAlignment="Center" Margin="0,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Reponse1}"/>
         <TextBox x:Name="reponse2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Height="19" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Reponse2}"/>
@@ -47,9 +63,10 @@
         <TextBox x:Name="reponse4" Grid.Column="1" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Height="19" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Reponse4}"/>
         <TextBox x:Name="bonneReponse" Grid.Column="1" HorizontalAlignment="Left" Margin="18,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Height="17" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.BonneReponse}"/>
         <Label Grid.Column="1" Content="Réponse correcte :" HorizontalAlignment="Left" Margin="18,300,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Column="1" Content="Ajouter question" HorizontalAlignment="Left" Margin="18,353,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="Button_Click_1"/>
-        <Button Grid.Column="1" Content="Supprimer question" HorizontalAlignment="Left" Margin="251,353,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="Button_Click_2"/>
-        <Button Content="Aller au gestionnaire de questionnaires" HorizontalAlignment="Left" Margin="152,17,0,0" VerticalAlignment="Top" Height="46" Width="222" Click="Button_Click"/>
+        <Button Grid.Column="1" Content="Ajouter question" HorizontalAlignment="Left" Margin="18,353,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="Button_Click_1" IsEnabled="{Binding ElementName=enonce, Path=Text, Converter={StaticResource TextNotEmpty}}"/>
+        <Button Grid.Column="1" Content="Supprimer question" HorizontalAlignment="Left" Margin="251,353,0,0" VerticalAlignment="Top" Height="50" Width="120" Click="Button_Click_2" />
+        <Button Grid.Column="1" Content="Enregistrer" HorizontalAlignment="Left" Margin="140,353,0,0" VerticalAlignment="Top" Height="50" Width="100" Click="Q_Save_Click" />
+        <Button Content="Aller au gestionnaire de questionnaires" HorizontalAlignment="Left" Margin="152,17,0,0" VerticalAlignment="Top" Height="46" Width="222" Click="Button_Click" />
         <Label Grid.Column="1" Content="Catégorie :" HorizontalAlignment="Left" Margin="30,99,0,0" VerticalAlignment="Top" Width="128"/>
         <TextBox x:Name="categorie" Grid.Column="1" HorizontalAlignment="Left" Margin="105,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Text="{Binding ElementName=QuestionsListBox, Path=SelectedItem.Categorie}"/>
     </Grid>

@@ -154,5 +154,38 @@ namespace questions_WPF.Pages
                 MessageBox.Show("Suppression impossible" + ex.Message);
             }
         }
+
+        private async void Q_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (QuestionsListBox.SelectedItem is not questions_Data.Domain.Question q)
+            {
+                MessageBox.Show("Sélectionnez une question à modifier.");
+                return;
+            }
+
+            q.Enonce = enonce.Text?.Trim() ?? "";
+            q.Reponse1 = string.IsNullOrWhiteSpace(reponse1.Text) ? null : reponse1.Text.Trim();
+            q.Reponse2 = string.IsNullOrWhiteSpace(reponse2.Text) ? null : reponse2.Text.Trim();
+            q.Reponse3 = string.IsNullOrWhiteSpace(reponse3.Text) ? null : reponse3.Text.Trim();
+            q.Reponse4 = string.IsNullOrWhiteSpace(reponse4.Text) ? null : reponse4.Text.Trim();
+            q.BonneReponse = string.IsNullOrWhiteSpace(bonneReponse.Text) ? null : bonneReponse.Text.Trim();
+
+            var choices = new[] { q.Reponse1, q.Reponse2, q.Reponse3, q.Reponse4 }
+                          .Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
+            if (string.IsNullOrWhiteSpace(q.Enonce) || choices.Count == 0 ||
+                string.IsNullOrWhiteSpace(q.BonneReponse) || !choices.Contains(q.BonneReponse))
+            {
+                MessageBox.Show("Complétez l’énoncé, une réponse et la bonne réponse.");
+                return;
+            }
+
+            await App.Ef.UpdateQuestionAsync(q);
+
+            var keepIndex = QuestionsListBox.SelectedIndex;
+            await LoadAsync();
+            QuestionsListBox.SelectedIndex = Math.Min(keepIndex, QuestionsListBox.Items.Count - 1);
+
+            MessageBox.Show("Enregistré ✅");
+        }
     }
 }

@@ -38,8 +38,8 @@
         <Label Grid.Column="1" Content="Nom du questionnaire :" HorizontalAlignment="Left" Margin="17,277,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="titreQuestionnaire" Grid.Column="1" HorizontalAlignment="Center" Margin="0,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" Height="20" Text="{Binding ElementName=QuestionnairesListBox, Path=SelectedItem.Titre}"/>
         <Button Grid.Column="1" Content="Ajouter" HorizontalAlignment="Left" Margin="18,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Button_Click_2"/>
-        <Button Grid.Column="1" Content="Supprimer" HorizontalAlignment="Left" Margin="120,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Button_Click_3"/>
-        <Button Grid.Column="1" Content="Ouvrir" HorizontalAlignment="Left" Margin="302,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Open_Click"/>
+        <Button Grid.Column="1" Content="Supprimer" HorizontalAlignment="Left" Margin="135,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Button_Click_3"/>
+        <Button Grid.Column="1" Content="Ouvrir" HorizontalAlignment="Left" Margin="250,350,0,0" VerticalAlignment="Top" Height="45" Width="80" Click="Open_Click"/>
         <!-- <Button Grid.Column="1" Content="Aller au gestionnaire de questions" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="52" Width="190" Click="Button_Click_1"/> -->
     </Grid>
 </Page>
